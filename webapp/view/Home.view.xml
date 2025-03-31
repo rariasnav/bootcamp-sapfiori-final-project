@@ -1,0 +1,28 @@
+<mvc:View
+    controllerName="com.bootcamp.sapui5.smartapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true"
+    xmlns:c="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <!-- Filters fragment -->
+                <c:Fragment
+                    fragmentName="com.bootcamp.sapui5.smartapp.view.fragments.SupplierFilters"
+                    type="XML"
+                />
+
+                <!-- Table fragment -->
+                <c:Fragment
+                    fragmentName="com.bootcamp.sapui5.smartapp.view.fragments.SuppliersTable"
+                    type="XML"
+                />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

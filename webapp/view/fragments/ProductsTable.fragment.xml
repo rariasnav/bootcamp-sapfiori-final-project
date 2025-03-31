@@ -1,0 +1,42 @@
+<c:FragmentDefinition
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns:table="sap.ui.table"
+>
+    <table:Table
+        id="productsTableId"
+        rows="{ProductsModel>/}"
+        visibleRowCount="0"
+        selectionMode="None"
+        enableColumnReordering="true"
+        enableCellFilter="true"
+        rowHeight="40">
+        <table:columns>
+            <table:Column sortProperty="Product" filterProperty="Product">
+                <m:Label text="{i18n>ProductId}"/>
+                <table:template>
+                    <m:Text text="{ProductsModel>Product}" />
+                </table:template>
+            </table:Column>
+
+            <table:Column sortProperty="Name" filterProperty="Name">
+                <m:Label text="{i18n>ProductName}"/>
+                <table:template>
+                    <m:Text text="{ProductsModel>Name}" />
+                </table:template>
+            </table:Column>
+
+            <table:Column sortProperty="Price" filterProperty="Price">
+                <m:Label text="{i18n>ProductPrice}"/>
+                <table:template>
+                    <m:ObjectNumber
+                        number="{ProductsModel>Price}"
+                        unit="{ProductsModel>Currency}" />
+                </table:template>
+            </table:Column>
+
+        </table:columns>
+
+    </table:Table>
+    
+</c:FragmentDefinition>

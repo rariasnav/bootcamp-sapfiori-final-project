@@ -1,0 +1,54 @@
+<mvc:View
+    controllerName="com.bootcamp.sapui5.smartapp.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Page
+        id="detailPage"
+        title="{i18n>supplierDetails}"
+    >
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm
+                    id="supplierForm"
+                    layout="ResponsiveGridLayout"
+                    editable="false"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="6"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="2"
+                    singleContainerFullSize="false"
+                >
+                    <f:content>
+                        <Label text="{i18n>SupplierID}" />
+                        <Text text="{Supplier}"/>
+
+                        <Label text="{i18n>CompanyName}" />
+                        <Text text="{CompanyName}"/>
+
+                        <Label text="{i18n>PhoneNumber}" />
+                        <Text text="{PhoneNumber}"/>
+
+                        <Label text="{i18n>EmailAddress}" />
+                        <Text text="{EmailAddress}"/>
+
+                        <Label text="{i18n>Country}" />
+                        <Text text="{path: 'to_Address/FullAddress', formatter: '.formatter.getCountryFromAddress'}"/>
+                        
+                    </f:content>
+                </f:SimpleForm>
+
+                <c:Fragment 
+                    fragmentName="com.bootcamp.sapui5.smartapp.view.fragments.ProductsTable"
+                    type="XML"/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,35 @@
+<c:FragmentDefinition
+    xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <Table
+        id="suppliersTableId"
+        rows="{SuppliersModel>/}"
+        selectionMode="Single"
+        selectionBehavior="RowOnly"
+        visibleRowCount="10"
+        rowSelectionChange="onSupplierSelect"
+    >
+        <columns>
+            <Column
+                sortProperty="Supplier"
+                filterProperty="Supplier"
+            >
+                <m:Label text="{i18n>SupplierID}" />
+                <template>
+                    <m:Text text="{SuppliersModel>Supplier}" />
+                </template>
+            </Column>
+            <Column
+                sortProperty="CompanyName"
+                filterProperty="CompanyName"
+            >
+                <m:Label text="{i18n>CompanyName}" />
+                <template>
+                    <m:Text text="{SuppliersModel>CompanyName}" />
+                </template>
+            </Column>
+        </columns>
+    </Table>
+</c:FragmentDefinition>
