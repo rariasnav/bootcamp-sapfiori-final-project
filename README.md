@@ -7,7 +7,7 @@
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>simple|
 |**Service Type**<br>SAP System (ABAP On Premise)|
-|**Service URL**<br>https://sapes5.sapdevcenter.com/sap/opu/odata/sap/SEPMRA_PO_MAN|
+|**Service URL**<br>https://sapes5.sapdevcenter.com/sap/opu/odata/sap/SEPMRA_PROD_MAN|
 |**Module Name**<br>smartapp|
 |**Application Title**<br>Smart App|
 |**Namespace**<br>com.bootcamp.sapui5|
