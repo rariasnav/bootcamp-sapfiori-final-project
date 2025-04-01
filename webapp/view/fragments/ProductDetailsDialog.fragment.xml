@@ -11,6 +11,7 @@
         class="sapUiSizeCompact"
         draggable="true"
         resizable="true"
+        ariaLabelledBy="dialogTitle"
     >
         <content>
             <f:SimpleForm
@@ -26,21 +27,46 @@
                 singleContainerFullSize="false"
                 width="30rem"
             >
-                <f:content>
-                    <Label text="{i18n>ProductId}" />
-                    <Text
-                        text="{= ${DialogProductModel>Product} || 'Sin dato'}"
-                    />
+                <Label
+                    id="dialogTitle"
+                    text="{i18n>ProductDetail}"
+                    visible="false"
+                />
+                <Label
+                    text="{i18n>ProductId}"
+                    labelFor="productIdText"
+                />
+                <Text
+                    id="productIdText"
+                    text="{DialogProductModel>Product}"
+                />
 
-                    <Label text="{i18n>ProductName}" />
-                    <Text text="{DialogProductModel>Name}" />
+                <Label
+                    text="{i18n>ProductName}"
+                    labelFor="productNameText"
+                />
+                <Text
+                    id="productNameText"
+                    text="{DialogProductModel>Name}"
+                />
 
-                    <Label text="{i18n>ProductPrice}" />
-                    <Text text="{DialogProductModel>Price}" />
+                <Label
+                    text="{i18n>ProductPrice}"
+                    labelFor="productPriceText"
+                />
+                <Text
+                    id="productPriceText"
+                    text="{DialogProductModel>Price}"
+                />
 
-                    <Label text="{i18n>ProductCurrency}" />
-                    <Text text="{DialogProductModel>Currency}" />
-                </f:content>
+                <Label
+                    text="{i18n>ProductCurrency}"
+                    labelFor="productCurrencyText"
+                />
+                <Text
+                    id="productCurrencyText"
+                    text="{DialogProductModel>Currency}"
+                />
             </f:SimpleForm>
         </content>
 
@@ -48,6 +74,7 @@
             <Button
                 text="{i18n>Close}"
                 press="onCloseDialog"
+                tooltip="{i18n>closeDialogTooltip}"
             />
         </beginButton>
     </Dialog>

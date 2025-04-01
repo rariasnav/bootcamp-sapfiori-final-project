@@ -3,6 +3,16 @@
     xmlns:m="sap.m"
     xmlns:c="sap.ui.core"
 >
+    <m:Toolbar>
+        <m:Title
+            text="{i18n>suppliersTableTitle}"
+            level="H2"
+        />
+    </m:Toolbar>
+    <m:Text
+        text="{i18n>selectSupplierInstruction}"
+        class="sapUiSmallMarginBottom"
+    />
     <Table
         id="suppliersTableId"
         rows="{SuppliersModel>/}"
@@ -10,15 +20,20 @@
         selectionBehavior="RowOnly"
         visibleRowCount="10"
         rowSelectionChange="onSupplierSelect"
+        ariaLabelledBy="suppliersTableLabel"
     >
         <columns>
             <Column
                 sortProperty="Supplier"
                 filterProperty="Supplier"
+                tooltip="{i18n>supplierIDTooltip}"
             >
                 <m:Label text="{i18n>SupplierID}" />
                 <template>
-                    <m:Text text="{SuppliersModel>Supplier}" />
+                    <m:Text
+                        text="{SuppliersModel>Supplier}"
+                        tooltip="{SuppliersModel>Supplier}"
+                    />
                 </template>
             </Column>
             <Column
@@ -27,7 +42,10 @@
             >
                 <m:Label text="{i18n>CompanyName}" />
                 <template>
-                    <m:Text text="{SuppliersModel>CompanyName}" />
+                    <m:Text
+                        text="{SuppliersModel>CompanyName}"
+                        tooltip="{SuppliersModel>CompanyName}"
+                    />
                 </template>
             </Column>
         </columns>

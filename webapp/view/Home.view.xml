@@ -10,7 +10,14 @@
         title="{i18n>title}"
     >
         <content>
-            <VBox class="sapUiSmallMargin">
+            <VBox
+                class="sapUiSmallMargin"
+                renderType="Bare"
+            >
+                <c:InvisibleText
+                    id="pageTitle"
+                    text="{i18n>title}"
+                />
                 <!-- Filters fragment -->
                 <c:Fragment
                     fragmentName="com.bootcamp.sapui5.smartapp.view.fragments.SupplierFilters"

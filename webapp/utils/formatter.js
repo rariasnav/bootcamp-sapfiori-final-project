@@ -5,7 +5,7 @@ sap.ui.define([], function () {
         getCountryFromAddress: function (sFullAddress) {
             if (!sFullAddress) return "";
             const aLines = sFullAddress.split("\\n");
-            return aLines[aLines.length -1 ] || "";
+            return aLines[aLines.length - 1] || "";
         },
     };
 });

@@ -11,6 +11,7 @@
         class="sapUiSizeCompact"
         draggable="true"
         resizable="true"
+        ariaLabelledBy="newDialogTitle"
     >
         <content>
             <f:SimpleForm
@@ -28,65 +29,76 @@
                 singleContainerFullSize="false"
                 width="30rem"
             >
-                <f:content>
-                    <Label
-                        text="{i18n>ProductId}"
-                        required="true"
-                    />
-                    <Input
-                        value="{NewProductModel>Product}"
-                        required="true"
-                    />
+                <Label
+                    id="newDialogTitle"
+                    text="{i18n>ProductDetail}"
+                    visible="false"
+                />
+                <Label
+                    id="lblNewProductId"
+                    text="{i18n>ProductId}"
+                    required="true"
+                />
+                <Input
+                    value="{NewProductModel>Product}"
+                    required="true"
+                    ariaLabelledBy="lblNewProductId"
+                />
 
-                    <Label
-                        text="{i18n>ProductName}"
-                        required="true"
-                    />
-                    <Input
-                        value="{NewProductModel>Name}"
-                        required="true"
-                    />
+                <Label
+                    id="lblNewProductName"
+                    text="{i18n>ProductName}"
+                    required="true"
+                />
+                <Input
+                    value="{NewProductModel>Name}"
+                    required="true"
+                    ariaLabelledBy="lblNewProductName"
+                />
 
-                    <Label
-                        text="{i18n>ProductPrice}"
-                        required="true"
-                    />
-                    <Input
-                        value="{NewProductModel>Price}"
-                        type="Number"
-                        required="true"
-                        valueLiveUpdate="true"
-                    />
+                <Label
+                    id="lblNewProductPrice"
+                    text="{i18n>ProductPrice}"
+                    required="true"
+                />
+                <Input
+                    value="{NewProductModel>Price}"
+                    type="Number"
+                    required="true"
+                    valueLiveUpdate="true"
+                    ariaLabelledBy="lblNewProductPrice"
+                />
 
-                    <Label
-                        text="{i18n>ProductCurrency}"
-                        required="true"
-                    />
-                    <ComboBox
-                        selectedKey="{NewProductModel>Currency}"
-                        placeholder="{i18n>selectCurrencyPlaceholder}"
-                        showSecondaryValues="true"
-                        required="true"
-                    >
-                        <items>
-                            <c:ListItem 
-                                key="EUR"
-                                text="EUR"
-                                additionalText="{i18n>EUR}"                                
-                            />
-                            <c:ListItem 
-                                key="USD"
-                                text="USD"
-                                additionalText="{i18n>USD}"                                
-                            />
-                            <c:ListItem 
-                                key="COP"
-                                text="COP"
-                                additionalText="{i18n>COP}"
-                            />
-                        </items>
-                    </ComboBox>
-                </f:content>
+                <Label
+                    id="lblNewProductCurrency"
+                    text="{i18n>ProductCurrency}"
+                    required="true"
+                />
+                <ComboBox
+                    selectedKey="{NewProductModel>Currency}"
+                    placeholder="{i18n>selectCurrencyPlaceholder}"
+                    showSecondaryValues="true"
+                    required="true"
+                    ariaLabelledBy="lblNewProductCurrency"
+                >
+                    <items>
+                        <c:ListItem
+                            key="EUR"
+                            text="EUR"
+                            additionalText="{i18n>EUR}"
+                        />
+                        <c:ListItem
+                            key="USD"
+                            text="USD"
+                            additionalText="{i18n>USD}"
+                        />
+                        <c:ListItem
+                            key="COP"
+                            text="COP"
+                            additionalText="{i18n>COP}"
+                        />
+                    </items>
+                </ComboBox>
             </f:SimpleForm>
         </content>
 
@@ -95,12 +107,14 @@
                 text="{i18n>newItemDialogCreateBtn}"
                 type="Emphasized"
                 press=".onPressSaveData"
+                tooltip="{i18n>createProductDialogTooltip}"
             />
         </beginButton>
         <endButton>
             <Button
                 text="{i18n>Cancel}"
                 press=".onCloseAddItemDialog"
+                tooltip="{i18n>cancelProductCreateDialogTooltip}"
             />
         </endButton>
     </Dialog>

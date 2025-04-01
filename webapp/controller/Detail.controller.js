@@ -11,6 +11,7 @@ sap.ui.define([
         formatter: formatter,
 
         onInit: async function () {
+            //Set thee router and the main helper model.
             this.getOwnerComponent().getRouter().getRoute("RouteDetail").attachPatternMatched(this._onObjectMatched, this);
             DetailHelper.init(this.getOwnerComponent().getModel());
         },
@@ -49,6 +50,7 @@ sap.ui.define([
                 this.getView().addDependent(this._oProductDialog);
             }
 
+
             this._oProductDialog.bindElement({
                 path: "/",
                 model: "DialogProductModel"
@@ -72,7 +74,8 @@ sap.ui.define([
 
                 this.getView().addDependent(this._oNewProductDialog);
             }
-            
+
+            //Link the model of the selected product
             this._oNewProductDialog.bindElement({
                 path: "/",
                 model: "NewProductModel"
@@ -89,23 +92,25 @@ sap.ui.define([
             const oData = this.getView().getModel("NewProductModel").getData();
             const oBundle = this.getView().getModel("i18n").getResourceBundle();
 
+            //Fields validation
             const bValid = oData.Product && oData.Name && oData.Price && oData.Currency;
-
             if (!bValid) {
                 MessageBox.error(oBundle.getText("requiredFieldsMessage"));
                 return;
-            }    
+            }
 
-            const oNewProduct = {...oData};
+            //Add the new pruduct to the existing local model
+            const oNewProduct = { ...oData };
             const oProductsModel = this.getOwnerComponent().getModel("ProductsModel");
             const aProducts = oProductsModel.getData();
             aProducts.push(oNewProduct);
             oProductsModel.setData(aProducts);
 
+            //Update the table and focus on the created product
             const oTable = this.byId("productsTableId");
             if (oTable) {
                 oTable.setVisibleRowCount(aProducts.length);
-                
+
                 const iLastIndex = aProducts.length - 1;
                 oTable.setFirstVisibleRow(iLastIndex);
                 oTable.setSelectedIndex(iLastIndex);
@@ -113,8 +118,8 @@ sap.ui.define([
 
             MessageBox.success(oBundle.getText("createdSuccessMessage"));
 
+            //Clear the form and close the dialog
             this.getView().getModel("NewProductModel").setData({});
-
             this._oNewProductDialog.close();
         },
     });

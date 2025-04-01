@@ -11,7 +11,10 @@
         title="{i18n>supplierDetails}"
     >
         <content>
-            <VBox class="sapUiSmallMargin">
+            <VBox
+                class="sapUiSmallMargin"
+                renderType="Bare"
+            >
                 <f:SimpleForm
                     id="supplierForm"
                     layout="ResponsiveGridLayout"
@@ -27,20 +30,28 @@
                     singleContainerFullSize="false"
                 >
                     <f:content>
-                        <Label text="{i18n>SupplierID}" />
-                        <Text text="{Supplier}" />
+                        <!-- Invisible title for screen readers -->
+                        <Title
+                            id="supplierFormLabel"
+                            text="{i18n>supplierDetails}"
+                            visible="false"
+                        />
 
-                        <Label text="{i18n>CompanyName}" />
-                        <Text text="{CompanyName}" />
+                        <Label text="{i18n>SupplierID}" labelFor="supplierIdText" />
+                        <Text id="supplierIdText" text="{Supplier}" />
 
-                        <Label text="{i18n>PhoneNumber}" />
-                        <Text text="{PhoneNumber}" />
+                        <Label text="{i18n>CompanyName}" labelFor="companyNameText" />
+                        <Text id="companyNameText" text="{CompanyName}" />
 
-                        <Label text="{i18n>EmailAddress}" />
-                        <Text text="{EmailAddress}" />
+                        <Label text="{i18n>PhoneNumber}" labelFor="phoneNumberText" />
+                        <Text id="phoneNumberText" text="{PhoneNumber}" />
 
-                        <Label text="{i18n>Country}" />
+                        <Label text="{i18n>EmailAddress}" labelFor="emailText" />
+                        <Text id="emailText" text="{EmailAddress}" />
+
+                        <Label text="{i18n>Country}" labelFor="countryText" />
                         <Text
+                        id="countryText"
                             text="{path: 'to_Address/FullAddress', formatter: '.formatter.getCountryFromAddress'}"
                         />
                     </f:content>
@@ -60,6 +71,8 @@
                         icon="sap-icon://add"
                         press=".onOpenNewMaterialDialog"
                         type="Emphasized"
+                        tooltip="{i18n>newItemDialogOpenTooltip}"
+                        ariaHasPopup="Dialog"
                     />
                 </HBox>
             </VBox>

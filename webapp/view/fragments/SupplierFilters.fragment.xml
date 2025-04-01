@@ -49,19 +49,21 @@
                 />
             </m:VBox>
             <m:VBox class="sapUiSmallMarginEnd">
-                <m:Label text=" " /> <!-- Space just to align the buton -->
+                <m:Label text=" " /><!-- Space just to align the buton -->                
                 <m:Button
                     icon="sap-icon://filter"
-                    text="{i18n>applyFilter}"
+                    text="{i18n>applyFilters}"
                     press=".onFilterSuppliers"
+                    tooltip="{i18n>applyFilterTooltip}"
                 />
             </m:VBox>
             <m:VBox class="sapUiSmallMarginEnd">
-                <m:Label text=" " /> <!-- Space just to align the buton -->
+                <m:Label text=" " /><!-- Space just to align the buton -->                
                 <m:Button
                     icon="sap-icon://clear-filter"
                     text="{i18n>clearFilters}"
                     press=".onClearFilters"
+                    tooltip="{i18n>clearFiltersTooltip}"
                 />
             </m:VBox>
         </m:HBox>
