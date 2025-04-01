@@ -1,42 +1,49 @@
 <c:FragmentDefinition
-    xmlns:c="sap.ui.core"
+    xmlns="sap.ui.table"
     xmlns:m="sap.m"
-    xmlns:table="sap.ui.table"
+    xmlns:c="sap.ui.core"
 >
-    <table:Table
+    <Table
         id="productsTableId"
         rows="{ProductsModel>/}"
+        selectionMode="Single"
+        selectionBehavior="RowOnly"
         visibleRowCount="0"
-        selectionMode="None"
-        enableColumnReordering="true"
-        enableCellFilter="true"
-        rowHeight="40">
-        <table:columns>
-            <table:Column sortProperty="Product" filterProperty="Product">
-                <m:Label text="{i18n>ProductId}"/>
-                <table:template>
+        rowSelectionChange="onProductSelect"
+    >
+        <columns>
+            <Column
+                sortProperty="Product"
+                filterProperty="Product"
+            >
+                <m:Label text="{i18n>ProductId}" />
+                <template>
                     <m:Text text="{ProductsModel>Product}" />
-                </table:template>
-            </table:Column>
+                </template>
+            </Column>
 
-            <table:Column sortProperty="Name" filterProperty="Name">
-                <m:Label text="{i18n>ProductName}"/>
-                <table:template>
+            <Column
+                sortProperty="Name"
+                filterProperty="Name"
+            >
+                <m:Label text="{i18n>ProductName}" />
+                <template>
                     <m:Text text="{ProductsModel>Name}" />
-                </table:template>
-            </table:Column>
+                </template>
+            </Column>
 
-            <table:Column sortProperty="Price" filterProperty="Price">
-                <m:Label text="{i18n>ProductPrice}"/>
-                <table:template>
+            <Column
+                sortProperty="Price"
+                filterProperty="Price"
+            >
+                <m:Label text="{i18n>ProductPrice}" />
+                <template>
                     <m:ObjectNumber
                         number="{ProductsModel>Price}"
-                        unit="{ProductsModel>Currency}" />
-                </table:template>
-            </table:Column>
-
-        </table:columns>
-
-    </table:Table>
-    
+                        unit="{ProductsModel>Currency}"
+                    />
+                </template>
+            </Column>
+        </columns>
+    </Table>
 </c:FragmentDefinition>

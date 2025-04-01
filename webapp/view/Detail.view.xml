@@ -28,26 +28,40 @@
                 >
                     <f:content>
                         <Label text="{i18n>SupplierID}" />
-                        <Text text="{Supplier}"/>
+                        <Text text="{Supplier}" />
 
                         <Label text="{i18n>CompanyName}" />
-                        <Text text="{CompanyName}"/>
+                        <Text text="{CompanyName}" />
 
                         <Label text="{i18n>PhoneNumber}" />
-                        <Text text="{PhoneNumber}"/>
+                        <Text text="{PhoneNumber}" />
 
                         <Label text="{i18n>EmailAddress}" />
-                        <Text text="{EmailAddress}"/>
+                        <Text text="{EmailAddress}" />
 
                         <Label text="{i18n>Country}" />
-                        <Text text="{path: 'to_Address/FullAddress', formatter: '.formatter.getCountryFromAddress'}"/>
-                        
+                        <Text
+                            text="{path: 'to_Address/FullAddress', formatter: '.formatter.getCountryFromAddress'}"
+                        />
                     </f:content>
                 </f:SimpleForm>
 
-                <c:Fragment 
+                <c:Fragment
                     fragmentName="com.bootcamp.sapui5.smartapp.view.fragments.ProductsTable"
-                    type="XML"/>
+                    type="XML"
+                />
+
+                <HBox
+                    justifyContent="End"
+                    class="sapUiSmallMarginTop"
+                >
+                    <Button
+                        text="{i18n>newItemDialogOpenButton}"
+                        icon="sap-icon://add"
+                        press=".onOpenNewMaterialDialog"
+                        type="Emphasized"
+                    />
+                </HBox>
             </VBox>
         </content>
     </Page>

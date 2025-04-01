@@ -1,0 +1,54 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Dialog
+        id="productDetailsDialog"
+        title="{i18n>ProductDetail}"
+        icon="sap-icon://product"
+        class="sapUiSizeCompact"
+        draggable="true"
+        resizable="true"
+    >
+        <content>
+            <f:SimpleForm
+                layout="ResponsiveGridLayout"
+                editable="false"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+                width="30rem"
+            >
+                <f:content>
+                    <Label text="{i18n>ProductId}" />
+                    <Text
+                        text="{= ${DialogProductModel>Product} || 'Sin dato'}"
+                    />
+
+                    <Label text="{i18n>ProductName}" />
+                    <Text text="{DialogProductModel>Name}" />
+
+                    <Label text="{i18n>ProductPrice}" />
+                    <Text text="{DialogProductModel>Price}" />
+
+                    <Label text="{i18n>ProductCurrency}" />
+                    <Text text="{DialogProductModel>Currency}" />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+
+        <beginButton>
+            <Button
+                text="{i18n>Close}"
+                press="onCloseDialog"
+            />
+        </beginButton>
+    </Dialog>
+</c:FragmentDefinition>
