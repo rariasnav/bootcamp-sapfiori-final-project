@@ -33,6 +33,8 @@ sap.ui.define([
                 // Initialize models
                 HomeHelper.init(this.getModel());
                 HomeHelper.setLocalModel(this);
+
+                // just a comment to send changes
             }
         });
     }
